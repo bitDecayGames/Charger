@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
     private float jumpDelay = 2.0f;
     private float lastJump = 0;
     private float facing = 1;// positive in the x direction
+    private bool grounded = true;
+    private float previousY = 0;// used to determine if grounded
 	// Use this for initialization
 	void Start () {
 		
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 
         transform.Translate(x, 0, 0);
 
-        if (Input.GetKeyDown("space") && lastJump <= 0)
+        if (Input.GetKeyDown("space") && lastJump <= 0 && grounded)
         {
             lastJump = jumpDelay;
              transform.Translate(Vector3.up * 130 * Time.deltaTime, Space.World);
@@ -39,5 +41,12 @@ public class PlayerController : MonoBehaviour {
 
         if (lastJump > 0)
             lastJump -= Time.deltaTime;
+
+        if (transform.position.y != previousY)        
+            grounded = false;
+        else
+            grounded = true;
+
+        previousY = transform.position.y;
     }
 }
