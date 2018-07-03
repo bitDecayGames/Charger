@@ -6,13 +6,17 @@ public class PlayerController : MonoBehaviour {
 
     private float jumpDelay = 0.5f;
     private float lastJump = 0;
-   
+
     private bool grounded = true;
+    //private bool isStill = true;
     private float previousY = 0;// used to determine if grounded
+    //private float previousX = 0;//used to determine if moving in a direction, to avoid applying transform when you cant move.
 
     private float jumpHeight = 8.0f;
-    private float jumpDistnce = 2.5f;
-
+    public float getFacing
+    {
+       get { return facing; }
+    }
     private float facing = 1;// positive in the x direction
     private float previousFacing;
     private bool flashLightOn = false;
@@ -29,7 +33,7 @@ public class PlayerController : MonoBehaviour {
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_BoxCollider = GetComponent<BoxCollider2D>();
         m_flash = gameObject.transform.Find("Flash").gameObject;
-        m_NewForce = new Vector3(jumpDistnce*facing , jumpHeight, 0.0f);
+        m_NewForce = new Vector3(facing , jumpHeight, 0.0f);
         previousFacing = facing;
         playerX = new Vector3(gameObject.transform.position.x, 0, 0);
 
@@ -37,10 +41,12 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        Vector3 mousePosition = Input.mousePosition;
         SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
+
         float x;
         playerX = new Vector3(gameObject.transform.position.x, 0, 0);
+
         if (Input.GetKey(KeyCode.D))
         {
             x = 1f * Time.deltaTime * 4.0f;
@@ -100,10 +106,15 @@ public class PlayerController : MonoBehaviour {
         else
             grounded = true;
 
-        
+        //if (transform.position.x != previousX)
+        //    isStill = false;
+        //else
+        //    isStill = true;
+
 
         previousY = transform.position.y;
-        m_NewForce = new Vector3(jumpDistnce * facing, jumpHeight, 0.0f);
+        //previousX = transform.position.x;
+        m_NewForce = new Vector3(facing, jumpHeight, 0.0f);
     }
 
 }

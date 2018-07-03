@@ -580,62 +580,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7272c72e372bda94dbfd7ab5e467d936, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &748299895 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1081692924930366, guid: 5561168d24bb02c4a9031177a6148d7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1962799057}
---- !u!233 &748299896
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 748299895}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1393272398}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09999998, y: 0.40000007}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
---- !u!1 &787548819 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1270891317826020, guid: 5561168d24bb02c4a9031177a6148d7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1962799057}
---- !u!233 &787548820
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 787548819}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1393272398}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09999998, y: -0.40000004}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!1001 &900956969
 Prefab:
   m_ObjectHideFlags: 0
@@ -969,39 +913,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7272c72e372bda94dbfd7ab5e467d936, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1393272396 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1567885085800362, guid: 5561168d24bb02c4a9031177a6148d7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1962799057}
---- !u!50 &1393272398 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50897379424472142, guid: 5561168d24bb02c4a9031177a6148d7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1962799057}
---- !u!233 &1393272401
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1393272396}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 1
-  m_ConnectedRigidBody: {fileID: 1879495466}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.3, y: 0}
-  m_ConnectedAnchor: {x: 1.04, y: 0}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 1
-  m_AngleLimits:
-    m_LowerAngle: -40
-    m_UpperAngle: 40
 --- !u!1001 &1414332846
 Prefab:
   m_ObjectHideFlags: 0
@@ -1167,11 +1078,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7272c72e372bda94dbfd7ab5e467d936, type: 2}
   m_IsPrefabParent: 0
---- !u!50 &1879495466 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50774749101912478, guid: 5561168d24bb02c4a9031177a6148d7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1962799057}
 --- !u!1001 &1936534213
 Prefab:
   m_ObjectHideFlags: 0
@@ -1284,10 +1190,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 50897379424472142, guid: 5561168d24bb02c4a9031177a6148d7a,
+    - target: {fileID: 114558081645149554, guid: 5561168d24bb02c4a9031177a6148d7a,
         type: 2}
-      propertyPath: m_Constraints
-      value: 6
+      propertyPath: upperAngle
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 114558081645149554, guid: 5561168d24bb02c4a9031177a6148d7a,
+        type: 2}
+      propertyPath: LowerAngle
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 233931954406061022, guid: 5561168d24bb02c4a9031177a6148d7a,
+        type: 2}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 233931954406061022, guid: 5561168d24bb02c4a9031177a6148d7a,
+        type: 2}
+      propertyPath: m_AngleLimits.m_LowerAngle
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5561168d24bb02c4a9031177a6148d7a, type: 2}
