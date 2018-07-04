@@ -7,34 +7,31 @@ public class PlayerController : MonoBehaviour {
     private float jumpDelay = 0.5f;
     private float lastJump = 0;
 
+    public GameObject flashLight;
+
     private bool grounded = true;
     //private bool isStill = true;
     private float previousY = 0;// used to determine if grounded
     //private float previousX = 0;//used to determine if moving in a direction, to avoid applying transform when you cant move.
 
     private float jumpHeight = 8.0f;
-    public float getFacing
-    {
-       get { return facing; }
-    }
+   
     private float facing = 1;// positive in the x direction
-    private float previousFacing;
-    private bool flashLightOn = false;
+
+    private bool flashLightOn = true;
+
     // Use this for initialization
     Vector3 m_NewForce;
     Rigidbody2D m_Rigidbody;
-    BoxCollider2D m_BoxCollider;
-    GameObject m_flash;
-    Vector3 yAxis = new Vector3(0,1,0);
+       
     Vector3 playerX;
 
 
     void Start () {
         m_Rigidbody = GetComponent<Rigidbody2D>();
-        m_BoxCollider = GetComponent<BoxCollider2D>();
-        m_flash = gameObject.transform.Find("Flash").gameObject;
+        
         m_NewForce = new Vector3(facing , jumpHeight, 0.0f);
-        previousFacing = facing;
+        
         playerX = new Vector3(gameObject.transform.position.x, 0, 0);
 
     }
@@ -42,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Vector3 mousePosition = Input.mousePosition;
-        SpriteRenderer playerSprite = gameObject.GetComponent<SpriteRenderer>();
+        
 
         float x;
         playerX = new Vector3(gameObject.transform.position.x, 0, 0);
@@ -59,31 +56,17 @@ public class PlayerController : MonoBehaviour {
             x = 0f * Time.deltaTime * 4.0f;
         }
         
-        if(Input.GetMouseButtonDown(0))
-        {
-            if (flashLightOn)
-            {
-                flashLightOn = false;
-                m_flash.SetActive(flashLightOn);
-            }
-            else
-            {
-                flashLightOn = true;
-                m_flash.SetActive(flashLightOn);
-            }                
-        }
+        
 
-        Vector3 origin = new Vector3(0.0f, 0, 0);
+
         if (Input.GetAxis("Horizontal") > 0 && facing < 0)
         {
-            gameObject.transform.RotateAround(playerX, Vector3.up,180f);
-            previousFacing = facing;
+            gameObject.transform.RotateAround(playerX, Vector3.up,180f);            
             facing = 1;
         }
         else if (Input.GetAxis("Horizontal") < 0 && facing > 0)
         {
-            gameObject.transform.RotateAround(playerX, Vector3.up, 180f);
-            previousFacing = facing;
+            gameObject.transform.RotateAround(playerX, Vector3.up, 180f);            
             facing = -1;
         }
 
@@ -115,6 +98,20 @@ public class PlayerController : MonoBehaviour {
         previousY = transform.position.y;
         //previousX = transform.position.x;
         m_NewForce = new Vector3(facing, jumpHeight, 0.0f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (flashLightOn)
+            {
+                flashLightOn = false;
+                flashLight.SetActive(flashLightOn);
+            }
+            else
+            {
+                flashLightOn = true;
+                flashLight.SetActive(flashLightOn);
+            }
+        }
     }
 
 }

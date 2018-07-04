@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 212985936633176136}
   - component: {fileID: 50777775500992498}
   - component: {fileID: 114558081645149554}
-  - component: {fileID: 233931954406061022}
+  - component: {fileID: 233312282509294942}
   m_Layer: 12
   m_Name: Flash
   m_TagString: Flash
@@ -275,9 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eeb174f1dd74be44ab28a39ef923a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  upperAngle: 70
-  LowerAngle: -70
+  player: {fileID: 1689151028604326}
+  radius: 1.65
+  radiusSpeed: 0
+  rotationSpeed: 3
 --- !u!212 &212183720423019492
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -458,7 +459,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!233 &233931954406061022
+--- !u!233 &233312282509294942
 HingeJoint2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -477,7 +478,7 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_AngleLimits:
-    m_LowerAngle: -70
-    m_UpperAngle: 70
+    m_LowerAngle: 0
+    m_UpperAngle: 359
